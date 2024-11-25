@@ -9,6 +9,8 @@ typedef enum{
 	SYSCALL_STAT = 0x04,
 	SYSCALL_FSTAT = 0x05,
 	SYSCALL_LSTAT = 0x06,
+	SYSCALL_POLL = 0x07,
+	SYSCALL_LSEEK = 0x08,
 	SYSCALL_EXIT = 0x3C
 }syscall_code;
 
@@ -28,6 +30,8 @@ int64 syscall_fstat(const char* filename, filestat_t* stat);
 
 int64 syscall_lstat(const char* filename, filestat_t* stat);
 
+int64 syscall_poll(pollfd_t* ufds, size_t nfds, int timeout);
+
+int64 syscall_lseek(file_t file, off_t offset, flag_t whence);
+
 int64 syscall_exit(int error_code);
-
-

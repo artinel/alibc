@@ -2,7 +2,7 @@ typedef unsigned int file_t;
 
 #ifndef FILE_STAT_STRUCT
 #define FILE_STAT_STRUCT
-struct filestat_struct{
+typedef struct{
 	unsigned short st_dev; //Device
 	unsigned long st_ino; //File serial number
 	unsigned int st_mode; //File mode
@@ -23,20 +23,16 @@ struct filestat_struct{
 	unsigned long st_ctime_nsec;
 	unsigned int __unused4;
 	unsigned int __unused5;
-};
-
-typedef filestat_struct filestat_t;
+}filestat_t;
 #endif
 
 #ifndef FILE_POLL_FD_STRUCT
 #define FILE_POLL_FD_STRUCT
-struct pollfd_struct{
+typedef struct{
 	file_t file;
 	short events;
 	short revents;
-};
-
-typedef pollfd_struct pollfd_t;
+}pollfd_t;
 #endif
 
 
