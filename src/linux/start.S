@@ -1,5 +1,5 @@
-.globl _syscall
-_syscall:
+.globl syscall
+syscall:
     movq %rdi, %rax
     movq %rsi, %rdi
     movq %rdx, %rsi
