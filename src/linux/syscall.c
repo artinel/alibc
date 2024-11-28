@@ -80,6 +80,10 @@ int64 syscall_writev(file_t file, const struct iovec* vec, size_t length){
 	return syscall(SYSCALL_WRITEV, PTR64(file), PTR(vec), PTR(length), NULL, NULL, NULL);
 }
 
+int64 syscall_access(file_t file, mode_t mode){
+	return syscall(SYSCALL_ACCESS, PTR64(file), PTR64(mode), NULL, NULL, NULL, NULL);
+}
+
 int64 syscall_exit(int error_code){
 	return syscall(SYSCALL_EXIT, PTR64S(error_code), NULL, NULL, NULL, NULL, NULL);
 }

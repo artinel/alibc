@@ -79,5 +79,8 @@ typedef struct{
 #define F_ISUID		0004000
 #define F_ISGID		0002000
 #define F_ISVTX		0001000
-
-
+//File access modes
+#define F_OK		0x0
+#define F_X_OK		0x1
+#define F_W_OK		0x2
+#define F_R_OK		0x4
