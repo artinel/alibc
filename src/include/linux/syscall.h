@@ -1,6 +1,7 @@
 #include<def.h>
 #include<io/file.h>
 #include<signal.h>
+#include<io.h>
 
 typedef enum{
 	SYSCALL_READ = 0x00,
@@ -22,6 +23,8 @@ typedef enum{
 	SYSCALL_IOCTL = 0x10,
 	SYSCALL_PREAD64 = 0x11,
 	SYSCALL_PWRITE64 = 0x12,
+	SYSCALL_READV = 0x13,
+	SYSCALL_WRITEV = 0x14,
 	SYSCALL_EXIT = 0x3C
 }syscall_code;
 
@@ -58,5 +61,9 @@ int64 syscall_ioctl(file_t file, unsigned int cmd, arg_t arg);
 int64 syscall_pread64(file_t file, char* buffer, size_t count, off_t offset);
 
 int64 syscall_pwrite64(file_t file, const char* buffer, size_t count, off_t offset);
+
+int64 syscall_readv(file_t file, const struct iovec* vec, size_t length);
+
+int64 syscall_writev(file_t file, const struct iovec* vec, size_t length);
 
 int64 syscall_exit(int error_code);

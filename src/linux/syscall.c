@@ -1,6 +1,7 @@
 #include<io/file.h>
 #include<def.h>
 #include<linux/syscall.h>
+#include<io.h>
 
 #define PTR(x) (void*)x
 #define PTR64(x) (void*)(unsigned long)x
@@ -69,6 +70,14 @@ int64 syscall_pread64(file_t file, char* buffer, size_t count, off_t offset){
 
 int64 syscall_pwrite64(file_t file, const char* buffer, size_t count, off_t offset){
 	return syscall(SYSCALL_PWRITE64, PTR64(file), PTR(buffer), PTR(count), PTR(offset), NULL, NULL);
+}
+
+int64 syscall_readv(file_t file, const struct iovec* vec, size_t length){
+	return syscall(SYSCALL_READV, PTR64(file), PTR(vec), PTR(length), NULL, NULL, NULL);
+}
+
+int64 syscall_writev(file_t file, const struct iovec* vec, size_t length){
+	return syscall(SYSCALL_WRITEV, PTR64(file), PTR(vec), PTR(length), NULL, NULL, NULL);
 }
 
 int64 syscall_exit(int error_code){
