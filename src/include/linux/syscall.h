@@ -19,6 +19,7 @@ typedef enum{
 	SYSCALL_RT_SIGACTION = 0x0D,//TODO implement it
 	SYSCALL_RT_SIGPROCMASK = 0x0E,//TODO implement it
 	SYSCALL_RT_SIGRETURN = 0x0F,//TODO implement it
+	SYSCALL_IOCTL = 0x10,
 	SYSCALL_EXIT = 0x3C
 }syscall_code;
 
@@ -49,5 +50,7 @@ int64 syscall_mprotect(off_t start, size_t length, flag_t prot);
 int64 syscall_munmap(addr_t address, size_t length);
 
 int64 syscall_brk(addr_t address);
+
+int64 syscall_ioctl(file_t file, unsigned int cmd, arg_t arg);
 
 int64 syscall_exit(int error_code);

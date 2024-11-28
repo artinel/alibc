@@ -8,3 +8,4 @@ typedef unsigned long addr_t;
 typedef unsigned int flag_t;
 typedef unsigned int signal_t;
 typedef unsigned int mode_t;
+typedef unsigned long arg_t;
