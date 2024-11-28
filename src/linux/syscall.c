@@ -63,6 +63,14 @@ int64 syscall_ioctl(file_t file, unsigned int cmd, arg_t arg){
 	return syscall(SYSCALL_IOCTL, PTR64(file), PTR64(cmd), PTR(arg), NULL, NULL, NULL);
 }
 
+int64 syscall_pread64(file_t file, char* buffer, size_t count, off_t offset){
+	return syscall(SYSCALL_PREAD64, PTR64(file), PTR(buffer), PTR(count), PTR(offset), NULL, NULL);
+}
+
+int64 syscall_pwrite64(file_t file, const char* buffer, size_t count, off_t offset){
+	return syscall(SYSCALL_PWRITE64, PTR64(file), PTR(buffer), PTR(count), PTR(offset), NULL, NULL);
+}
+
 int64 syscall_exit(int error_code){
 	return syscall(SYSCALL_EXIT, PTR64S(error_code), NULL, NULL, NULL, NULL, NULL);
 }
