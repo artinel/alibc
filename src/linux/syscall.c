@@ -84,6 +84,10 @@ int64 syscall_access(file_t file, mode_t mode){
 	return syscall(SYSCALL_ACCESS, PTR64(file), PTR64(mode), NULL, NULL, NULL, NULL);
 }
 
+int64 syscall_pipe(file_t files[2]){
+	return syscall(SYSCALL_PIPE, files, NULL, NULL, NULL, NULL, NULL);
+}
+
 int64 syscall_exit(int error_code){
 	return syscall(SYSCALL_EXIT, PTR64S(error_code), NULL, NULL, NULL, NULL, NULL);
 }

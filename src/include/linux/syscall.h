@@ -26,6 +26,7 @@ typedef enum{
 	SYSCALL_READV = 0x13,
 	SYSCALL_WRITEV = 0x14,
 	SYSCALL_ACCESS = 0x15,
+	SYSCALL_PIPE = 0x16,
 	SYSCALL_EXIT = 0x3C
 }syscall_code;
 
@@ -68,5 +69,7 @@ int64 syscall_readv(file_t file, const struct iovec* vec, size_t length);
 int64 syscall_writev(file_t file, const struct iovec* vec, size_t length);
 
 int64 syscall_access(file_t file, mode_t mode);
+
+int64 syscall_pipe(file_t files[2]);
 
 int64 syscall_exit(int error_code);
