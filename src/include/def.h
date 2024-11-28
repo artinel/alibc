@@ -5,5 +5,6 @@ typedef long long int64;
 typedef unsigned long size_t;
 typedef unsigned long off_t;
 typedef unsigned long addr_t;
-typedef unsigned long flag_t;
-typedef long mode_t;
+typedef unsigned int flag_t;
+typedef unsigned int signal_t;
+typedef unsigned int mode_t;

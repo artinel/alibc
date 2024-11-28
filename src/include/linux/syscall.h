@@ -1,5 +1,6 @@
 #include<def.h>
 #include<io/file.h>
+#include<signal.h>
 
 typedef enum{
 	SYSCALL_READ = 0x00,
@@ -15,6 +16,9 @@ typedef enum{
 	SYSCALL_MPROTECT = 0x0A,
 	SYSCALL_MUNMAP = 0x0B,
 	SYSCALL_BRK = 0x0C,
+	SYSCALL_RT_SIGACTION = 0x0D,//TODO implement it
+	SYSCALL_RT_SIGPROCMASK = 0x0E,//TODO implement it
+	SYSCALL_RT_SIGRETURN = 0x0F,//TODO implement it
 	SYSCALL_EXIT = 0x3C
 }syscall_code;
 
