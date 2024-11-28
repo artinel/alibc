@@ -2,6 +2,7 @@
 #include<def.h>
 #include<linux/syscall.h>
 #include<io.h>
+#include<time.h>
 
 #define PTR(x) (void*)x
 #define PTR64(x) (void*)(unsigned long)x
@@ -86,6 +87,10 @@ int64 syscall_access(file_t file, mode_t mode){
 
 int64 syscall_pipe(file_t files[2]){
 	return syscall(SYSCALL_PIPE, files, NULL, NULL, NULL, NULL, NULL);
+}
+
+int64 syscall_select(size_t nfds, fd_set_t* input, fd_set_t* output, fd_set_t* except, timeval_t* timeout){
+	return syscall(SYSCALL_SELECT, PTR(nfds), input, output, except, timeout, NULL);
 }
 
 int64 syscall_exit(int error_code){
