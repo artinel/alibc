@@ -36,7 +36,10 @@ typedef enum{
 	SYSCALL_EXECVE = 0x3B,
 	SYSCALL_EXIT = 0x3C,
 	SYSCALL_KILL = 0x3E,
-	SYSCALL_UNAME = 0x3F
+	SYSCALL_UNAME = 0x3F,
+	SYSCALL_GETCWD = 0x4F,
+	SYSCALL_CHDIR = 0x50,
+	SYSCALL_FCHDIR = 0x51
 }syscall_code;
 
 extern int64 syscall(syscall_code code, void* arg0, void* arg1, void* arg2, void* arg3, void* arg4, void* arg5);
@@ -96,3 +99,9 @@ int64 syscall_exit(int error_code);
 int64 syscall_kill(pid_t pid, signal_t signal);
 
 int64 syscall_uname(utsname_t* buffer);
+
+int64 syscall_getcwd(char* buffer, size_t size);
+
+int64 syscall_chdir(const char* path);
+
+int64 syscall_fchdir(file_t file);

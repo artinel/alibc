@@ -122,3 +122,15 @@ int64 syscall_kill(pid_t pid, signal_t signal){
 int64 syscall_uname(utsname_t* buffer){
 	return syscall(SYSCALL_UNAME, buffer, NULL, NULL, NULL, NULL, NULL);
 }
+
+int64 syscall_getcwd(char* buffer, size_t size){
+	return syscall(SYSCALL_GETCWD, buffer, PTR(size), NULL, NULL, NULL, NULL);
+}
+
+int64 syscall_chdir(const char* path){
+	return syscall(SYSCALL_CHDIR, PTR(path), NULL, NULL, NULL, NULL, NULL);
+}
+
+int64 syscall_fchdir(file_t file){
+	return syscall(SYSCALL_FCHDIR, PTR64(file), NULL, NULL, NULL, NULL, NULL);
+}
