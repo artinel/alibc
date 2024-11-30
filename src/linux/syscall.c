@@ -113,3 +113,6 @@ int64 syscall_exit(int error_code){
 	return syscall(SYSCALL_EXIT, PTR64S(error_code), NULL, NULL, NULL, NULL, NULL);
 }
 
+int64 syscall_kill(pid_t pid, signal_t signal){
+	return syscall(SYSCALL_KILL, PTR64(pid), PTR64(signal), NULL, NULL, NULL, NULL);
+}

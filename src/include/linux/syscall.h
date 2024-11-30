@@ -33,7 +33,8 @@ typedef enum{
 	SYSCALL_FORK = 0x39,
 	SYSCALL_VFORK = 0x3A,
 	SYSCALL_EXECVE = 0x3B,
-	SYSCALL_EXIT = 0x3C
+	SYSCALL_EXIT = 0x3C,
+	SYSCALL_KILL = 0x3E
 }syscall_code;
 
 extern int64 syscall(syscall_code code, void* arg0, void* arg1, void* arg2, void* arg3, void* arg4, void* arg5);
@@ -89,3 +90,5 @@ int64 syscall_vfork();
 int64 syscall_execve(const char* filename, const char* const* argv, const char* const* envp);
 
 int64 syscall_exit(int error_code);
+
+int64 syscall_kill(pid_t pid, signal_t signal);
