@@ -93,6 +93,10 @@ int64 syscall_select(size_t nfds, fd_set_t* input, fd_set_t* output, fd_set_t* e
 	return syscall(SYSCALL_SELECT, PTR(nfds), input, output, except, timeout, NULL);
 }
 
+int64 syscall_nanosleep(timespec_t* duration, timespec_t* remaining){
+	return syscall(SYSCALL_NANOSLEEP, duration, remaining, NULL, NULL, NULL, NULL);
+}
+
 int64 syscall_exit(int error_code){
 	return syscall(SYSCALL_EXIT, PTR64S(error_code), NULL, NULL, NULL, NULL, NULL);
 }

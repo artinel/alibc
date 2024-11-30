@@ -29,6 +29,7 @@ typedef enum{
 	SYSCALL_ACCESS = 0x15,
 	SYSCALL_PIPE = 0x16,
 	SYSCALL_SELECT = 0x17,
+	SYSCALL_NANOSLEEP = 0x23,
 	SYSCALL_EXIT = 0x3C
 }syscall_code;
 
@@ -75,5 +76,7 @@ int64 syscall_access(file_t file, mode_t mode);
 int64 syscall_pipe(file_t files[2]);
 
 int64 syscall_select(size_t nfds, fd_set_t* input, fd_set_t* output, fd_set_t* except, timeval_t* timeout);
+
+int64 syscall_nanosleep(timespec_t* duration, timespec_t* remaining);
 
 int64 syscall_exit(int error_code);
