@@ -134,3 +134,15 @@ int64 syscall_chdir(const char* path){
 int64 syscall_fchdir(file_t file){
 	return syscall(SYSCALL_FCHDIR, PTR64(file), NULL, NULL, NULL, NULL, NULL);
 }
+
+int64 syscall_rename(const char* old_path, const char* new_path){
+	return syscall(SYSCALL_RENAME, PTR(old_path), PTR(new_path), NULL, NULL, NULL, NULL);
+}
+
+int64 syscall_mkdir(const char* path, mode_t mode){
+	return syscall(SYSCALL_MKDIR, PTR(path), PTR64(mode), NULL, NULL, NULL, NULL);
+}
+
+int64 syscall_rmdir(const char* path){
+	return syscall(SYSCALL_RMDIR, PTR(path), NULL, NULL, NULL, NULL, NULL);
+}
