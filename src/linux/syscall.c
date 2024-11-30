@@ -97,6 +97,18 @@ int64 syscall_nanosleep(timespec_t* duration, timespec_t* remaining){
 	return syscall(SYSCALL_NANOSLEEP, duration, remaining, NULL, NULL, NULL, NULL);
 }
 
+int64 syscall_fork(){
+	return syscall(SYSCALL_FORK, NULL, NULL, NULL, NULL, NULL, NULL);
+}
+
+int64 syscall_vfork(){
+	return syscall(SYSCALL_VFORK, NULL, NULL, NULL, NULL, NULL, NULL);
+}
+
+int64 syscall_execve(const char* filename, const char* const* argv, const char* const* envp){
+	return syscall(SYSCALL_EXECVE, PTR(filename), PTR(argv), PTR(envp), NULL, NULL, NULL);
+}
+
 int64 syscall_exit(int error_code){
 	return syscall(SYSCALL_EXIT, PTR64S(error_code), NULL, NULL, NULL, NULL, NULL);
 }

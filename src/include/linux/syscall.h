@@ -30,6 +30,9 @@ typedef enum{
 	SYSCALL_PIPE = 0x16,
 	SYSCALL_SELECT = 0x17,
 	SYSCALL_NANOSLEEP = 0x23,
+	SYSCALL_FORK = 0x39,
+	SYSCALL_VFORK = 0x3A,
+	SYSCALL_EXECVE = 0x3B,
 	SYSCALL_EXIT = 0x3C
 }syscall_code;
 
@@ -78,5 +81,11 @@ int64 syscall_pipe(file_t files[2]);
 int64 syscall_select(size_t nfds, fd_set_t* input, fd_set_t* output, fd_set_t* except, timeval_t* timeout);
 
 int64 syscall_nanosleep(timespec_t* duration, timespec_t* remaining);
+
+int64 syscall_fork();
+
+int64 syscall_vfork();
+
+int64 syscall_execve(const char* filename, const char* const* argv, const char* const* envp);
 
 int64 syscall_exit(int error_code);
