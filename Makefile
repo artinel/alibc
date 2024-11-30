@@ -1,5 +1,5 @@
 SHELL ?= /bin/bash
-CC ?= gcc
+CC ?= clang
 CFLAGS ?= -nostdlib -I./src/include -Wall -g -fPIC -m64
 LDFLAGS = -shared
 TARGET = libac.so
