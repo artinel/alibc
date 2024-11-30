@@ -4,6 +4,7 @@
 #include<io/iovec.h>
 #include<sys/time.h>
 #include<sys/signal.h>
+#include<sys/utsname.h>
 
 #define PTR(x) (void*)x
 #define PTR64(x) (void*)(unsigned long)x
@@ -116,4 +117,8 @@ int64 syscall_exit(int error_code){
 
 int64 syscall_kill(pid_t pid, signal_t signal){
 	return syscall(SYSCALL_KILL, PTR64(pid), PTR64(signal), NULL, NULL, NULL, NULL);
+}
+
+int64 syscall_uname(utsname_t* buffer){
+	return syscall(SYSCALL_UNAME, buffer, NULL, NULL, NULL, NULL, NULL);
 }

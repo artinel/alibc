@@ -2,7 +2,8 @@
 #include<io/file.h>
 #include<sys/signal.h>
 #include<io/iovec.h>
-#include<sys.time.h>
+#include<sys/time.h>
+#include<sys/utsname.h>
 
 typedef enum{
 	SYSCALL_READ = 0x00,
@@ -34,7 +35,8 @@ typedef enum{
 	SYSCALL_VFORK = 0x3A,
 	SYSCALL_EXECVE = 0x3B,
 	SYSCALL_EXIT = 0x3C,
-	SYSCALL_KILL = 0x3E
+	SYSCALL_KILL = 0x3E,
+	SYSCALL_UNAME = 0x3F
 }syscall_code;
 
 extern int64 syscall(syscall_code code, void* arg0, void* arg1, void* arg2, void* arg3, void* arg4, void* arg5);
@@ -92,3 +94,5 @@ int64 syscall_execve(const char* filename, const char* const* argv, const char* 
 int64 syscall_exit(int error_code);
 
 int64 syscall_kill(pid_t pid, signal_t signal);
+
+int64 syscall_uname(utsname_t* buffer);
