@@ -1,8 +1,9 @@
 #include<io/file.h>
 #include<def.h>
 #include<linux/syscall.h>
-#include<io.h>
-#include<time.h>
+#include<io/iovec.h>
+#include<sys/time.h>
+#include<sys/signal.h>
 
 #define PTR(x) (void*)x
 #define PTR64(x) (void*)(unsigned long)x

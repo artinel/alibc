@@ -1,8 +1,8 @@
 #include<def.h>
 #include<io/file.h>
-#include<signal.h>
-#include<io.h>
-#include<time.h>
+#include<sys/signal.h>
+#include<io/iovec.h>
+#include<sys.time.h>
 
 typedef enum{
 	SYSCALL_READ = 0x00,
