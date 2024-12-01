@@ -42,7 +42,8 @@ typedef enum{
 	SYSCALL_FCHDIR = 0x51,
 	SYSCALL_RENAME = 0x52,
 	SYSCALL_MKDIR = 0x53,
-	SYSCALL_RMDIR = 0x54
+	SYSCALL_RMDIR = 0x54,
+	SYSCALL_CREAT = 0x55
 }syscall_code;
 
 extern int64 syscall(syscall_code code, void* arg0, void* arg1, void* arg2, void* arg3, void* arg4, void* arg5);
@@ -114,3 +115,5 @@ int64 syscall_rename(const char* old_path, const char* new_path);
 int64 syscall_mkdir(const char* path, mode_t mode);
 
 int64 syscall_rmdir(const char* path);
+
+int64 syscall_creat(const char* path, mode_t mode);

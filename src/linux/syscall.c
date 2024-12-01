@@ -146,3 +146,7 @@ int64 syscall_mkdir(const char* path, mode_t mode){
 int64 syscall_rmdir(const char* path){
 	return syscall(SYSCALL_RMDIR, PTR(path), NULL, NULL, NULL, NULL, NULL);
 }
+
+int64 syscall_creat(const char* path, mode_t mode){
+	return syscall(SYSCALL_CREAT, PTR(path), PTR64(mode), NULL, NULL, NULL, NULL);
+}
