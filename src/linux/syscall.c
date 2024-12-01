@@ -150,3 +150,19 @@ int64 syscall_rmdir(const char* path){
 int64 syscall_creat(const char* path, mode_t mode){
 	return syscall(SYSCALL_CREAT, PTR(path), PTR64(mode), NULL, NULL, NULL, NULL);
 }
+
+int64 syscall_link(const char* old_path, const char* new_path){
+	return syscall(SYSCALL_LINK, PTR(old_path), PTR(new_path), NULL, NULL, NULL, NULL);
+}
+
+int64 syscall_unlink(const char* path){
+	return syscall(SYSCALL_UNLINK, PTR(path), NULL, NULL, NULL, NULL, NULL);
+}
+
+int64 syscall_symlink(const char* target, const char* path){
+	return syscall(SYSCALL_SYMLINK, PTR(target), PTR(path), NULL, NULL, NULL, NULL);
+}
+
+int64 syscall_readlink(const char* path, char* buffer, size_t size){
+	return syscall(SYSCALL_READLINK, PTR(path), buffer, PTR(size), NULL, NULL, NULL);
+}
