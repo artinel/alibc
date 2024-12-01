@@ -43,9 +43,9 @@ typedef unsigned int file_t;
 #define F_IROTH		00004
 #define F_IWOTH		00002
 #define F_IXOTH		00001
-#define F_ISUID		0004000
-#define F_ISGID		0002000
-#define F_ISVTX		0001000
+#define F_ISUID		04000
+#define F_ISGID		02000
+#define F_ISVTX		01000
 //File access modes
 #define F_OK		0x0
 #define F_X_OK		0x1

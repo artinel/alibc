@@ -47,7 +47,9 @@ typedef enum{
 	SYSCALL_LINK = 0x56,
 	SYSCALL_UNLINK = 0x57,
 	SYSCALL_SYMLINK = 0x58,
-	SYSCALL_READLINK = 0x59
+	SYSCALL_READLINK = 0x59,
+	SYSCALL_CHMOD = 0x5A,
+	SYSCALL_FCHMOD = 0x5B
 }syscall_code;
 
 extern int64 syscall(syscall_code code, void* arg0, void* arg1, void* arg2, void* arg3, void* arg4, void* arg5);
@@ -129,3 +131,7 @@ int64 syscall_unlink(const char* path);
 int64 syscall_symlink(const char* target, const char* path);
 
 int64 syscall_readlink(const char* path, char* buffer, size_t size);
+
+int64 syscall_chmod(const char* path, mode_t mode);
+
+int64 syscall_fchmod(file_t file, mode_t mode);

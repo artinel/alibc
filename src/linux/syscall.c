@@ -166,3 +166,11 @@ int64 syscall_symlink(const char* target, const char* path){
 int64 syscall_readlink(const char* path, char* buffer, size_t size){
 	return syscall(SYSCALL_READLINK, PTR(path), buffer, PTR(size), NULL, NULL, NULL);
 }
+
+int64 syscall_chmod(const char* path, mode_t mode){
+	return syscall(SYSCALL_CHMOD, PTR(path), PTR64(mode), NULL, NULL, NULL, NULL);
+}
+
+int64 syscall_fchmod(file_t file, mode_t mode){
+	return syscall(SYSCALL_FCHMOD, PTR64(file), PTR64(mode), NULL, NULL, NULL, NULL);
+}
