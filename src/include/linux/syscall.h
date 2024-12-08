@@ -5,56 +5,55 @@
 #include<sys/time.h>
 #include<sys/utsname.h>
 
-typedef enum{
-	SYSCALL_READ = 0x00,
-	SYSCALL_WRITE = 0x01,
-	SYSCALL_OPEN = 0x02,
-	SYSCALL_CLOSE = 0x03,
-	SYSCALL_STAT = 0x04,
-	SYSCALL_FSTAT = 0x05,
-	SYSCALL_LSTAT = 0x06,
-	SYSCALL_POLL = 0x07,
-	SYSCALL_LSEEK = 0x08,
-	SYSCALL_MMAP = 0x09,
-	SYSCALL_MPROTECT = 0x0A,
-	SYSCALL_MUNMAP = 0x0B,
-	SYSCALL_BRK = 0x0C,
-	SYSCALL_RT_SIGACTION = 0x0D,//TODO implement it
-	SYSCALL_RT_SIGPROCMASK = 0x0E,//TODO implement it
-	SYSCALL_RT_SIGRETURN = 0x0F,//TODO implement it
-	SYSCALL_IOCTL = 0x10,
-	SYSCALL_PREAD64 = 0x11,
-	SYSCALL_PWRITE64 = 0x12,
-	SYSCALL_READV = 0x13,
-	SYSCALL_WRITEV = 0x14,
-	SYSCALL_ACCESS = 0x15,
-	SYSCALL_PIPE = 0x16,
-	SYSCALL_SELECT = 0x17,
-	SYSCALL_NANOSLEEP = 0x23,
-	SYSCALL_FORK = 0x39,
-	SYSCALL_VFORK = 0x3A,
-	SYSCALL_EXECVE = 0x3B,
-	SYSCALL_EXIT = 0x3C,
-	SYSCALL_KILL = 0x3E,
-	SYSCALL_UNAME = 0x3F,
-	SYSCALL_GETCWD = 0x4F,
-	SYSCALL_CHDIR = 0x50,
-	SYSCALL_FCHDIR = 0x51,
-	SYSCALL_RENAME = 0x52,
-	SYSCALL_MKDIR = 0x53,
-	SYSCALL_RMDIR = 0x54,
-	SYSCALL_CREAT = 0x55,
-	SYSCALL_LINK = 0x56,
-	SYSCALL_UNLINK = 0x57,
-	SYSCALL_SYMLINK = 0x58,
-	SYSCALL_READLINK = 0x59,
-	SYSCALL_CHMOD = 0x5A,
-	SYSCALL_FCHMOD = 0x5B,
-	SYSCALL_CHOWN = 0x5C,
-	SYSCALL_FCHOWN = 0x5D
-}syscall_code;
 
-extern int64 syscall(syscall_code code, void* arg0, void* arg1, void* arg2, void* arg3, void* arg4, void* arg5);
+#define	SYSCALL_READ  0x00
+#define SYSCALL_WRITE  0x01
+#define	SYSCALL_OPEN  0x02
+#define	SYSCALL_CLOSE  0x03
+#define	SYSCALL_STAT  0x04
+#define	SYSCALL_FSTAT  0x05
+#define	SYSCALL_LSTAT  0x06
+#define	SYSCALL_POLL  0x07
+#define	SYSCALL_LSEEK  0x08
+#define	SYSCALL_MMAP  0x09
+#define	SYSCALL_MPROTECT  0x0A
+#define	SYSCALL_MUNMAP  0x0B
+#define	SYSCALL_BRK  0x0C
+#define	SYSCALL_RT_SIGACTION  0x0D//TODO implement it
+#define	SYSCALL_RT_SIGPROCMASK  0x0E//TODO implement it
+#define	SYSCALL_RT_SIGRETURN  0x0F//TODO implement it
+#define	SYSCALL_IOCTL  0x10
+#define	SYSCALL_PREAD64  0x11
+#define	SYSCALL_PWRITE64  0x12
+#define	SYSCALL_READV  0x13
+#define	SYSCALL_WRITEV  0x14
+#define	SYSCALL_ACCESS  0x15
+#define	SYSCALL_PIPE  0x16
+#define	SYSCALL_SELECT  0x17
+#define	SYSCALL_NANOSLEEP  0x23
+#define	SYSCALL_FORK  0x39
+#define	SYSCALL_VFORK  0x3A
+#define	SYSCALL_EXECVE  0x3B
+#define	SYSCALL_EXIT  0x3C
+#define	SYSCALL_KILL  0x3E
+#define	SYSCALL_UNAME  0x3F
+#define	SYSCALL_GETCWD  0x4F
+#define	SYSCALL_CHDIR  0x50
+#define	SYSCALL_FCHDIR  0x51
+#define	SYSCALL_RENAME  0x52
+#define	SYSCALL_MKDIR  0x53
+#define	SYSCALL_RMDIR  0x54
+#define	SYSCALL_CREAT  0x55
+#define	SYSCALL_LINK  0x56
+#define	SYSCALL_UNLINK  0x57
+#define	SYSCALL_SYMLINK  0x58
+#define	SYSCALL_READLINK  0x59
+#define	SYSCALL_CHMOD  0x5A
+#define	SYSCALL_FCHMOD  0x5B
+#define	SYSCALL_CHOWN  0x5C
+#define	SYSCALL_FCHOWN  0x5D
+
+extern int64 syscall(unsigned int code, void* arg0, void* arg1, void* arg2, void* arg3, void* arg4, void* arg5);
 
 int64 syscall_read(file_t file, char* buffer, size_t count);
 
