@@ -4,6 +4,8 @@
 #include<io/iovec.h>
 #include<sys/time.h>
 #include<sys/utsname.h>
+#include<sys/resource.h>
+#include<sys/sysinfo.h>
 
 
 #define	SYSCALL_READ  0x00
@@ -51,6 +53,10 @@
 #define	SYSCALL_FCHOWN  0x5D
 #define SYSCALL_LCHOWN 0x5E
 #define SYSCALL_UMASK 0x5F
+#define SYSCALL_GETTIMEOFDAY 0x60
+#define SYSCALL_GETRLIMIT 0x61
+#define SYSCALL_GETRUSAGE 0x62
+#define SYSCALL_SYSINFO 0x63
 
 extern int64 syscall(unsigned int code, void* arg0, void* arg1, void* arg2, void* arg3, void* arg4, void* arg5);
 
@@ -143,3 +149,11 @@ int64 syscall_fchown(file_t file, uid_t user, gid_t group);
 int64 syscall_lchown(const char* filename, uid_t user, gid_t group);
 
 int64 syscall_umask(int mask);
+
+int64 syscall_gettimeofday(timeval_t* tv, timezone_t* tz);
+
+int64 syscall_getrlimit(resource_t resource, rlimit_t* rlim);
+
+int64 syscall_getrusage(flag_t who, rusage_t* ru);
+
+int64 syscall_sysinfo(sysinfo_t* info);

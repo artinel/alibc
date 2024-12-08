@@ -1,10 +1,5 @@
-#include<io/file.h>
-#include<def.h>
 #include<linux/syscall.h>
-#include<io/iovec.h>
-#include<sys/time.h>
-#include<sys/signal.h>
-#include<sys/utsname.h>
+
 
 #define PTR(x) (void*)x
 #define PTR64(x) (void*)(unsigned long)x
@@ -189,4 +184,20 @@ int64 syscall_lchown(const char* filename, uid_t user, gid_t group){
 
 int64 syscall_umask(int mask){
 	return syscall(SYSCALL_UMASK, PTR64(mask), NULL, NULL, NULL, NULL, NULL);
+}
+
+int64 syscall_gettimeofday(timeval_t* tv, timezone_t* tz){
+	return syscall(SYSCALL_GETTIMEOFDAY, tv, tz, NULL, NULL, NULL, NULL);
+}
+
+int64 syscall_getrlimit(resource_t resource, rlimit_t* rlim){
+	return syscall(SYSCALL_GETRLIMIT, PTR64(resource), rlim, NULL, NULL, NULL, NULL);
+}
+
+int64 syscall_getrusage(flag_t who, rusage_t* ru){
+	return syscall(SYSCALL_GETRUSAGE, PTR64(who), ru, NULL, NULL, NULL, NULL);
+}
+
+int64 syscall_sysinfo(sysinfo_t* info){
+	return syscall(SYSCALL_SYSINFO, info, NULL, NULL, NULL, NULL, NULL);
 }
