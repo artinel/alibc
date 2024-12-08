@@ -174,3 +174,11 @@ int64 syscall_chmod(const char* path, mode_t mode){
 int64 syscall_fchmod(file_t file, mode_t mode){
 	return syscall(SYSCALL_FCHMOD, PTR64(file), PTR64(mode), NULL, NULL, NULL, NULL);
 }
+
+int64 syscall_chown(const char* filename, uid_t user, gid_t group){
+	return syscall(SYSCALL_CHOWN, PTR(filename), PTR64(user), PTR64(group), NULL, NULL, NULL);
+}
+
+int64 syscall_fchown(file_t file, uid_t user, gid_t group){
+	return syscall(SYSCALL_FCHOWN, PTR64(file), PTR64(user), PTR64(group), NULL, NULL, NULL);
+}
