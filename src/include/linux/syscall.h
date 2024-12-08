@@ -19,9 +19,6 @@
 #define	SYSCALL_MPROTECT  0x0A
 #define	SYSCALL_MUNMAP  0x0B
 #define	SYSCALL_BRK  0x0C
-#define	SYSCALL_RT_SIGACTION  0x0D//TODO implement it
-#define	SYSCALL_RT_SIGPROCMASK  0x0E//TODO implement it
-#define	SYSCALL_RT_SIGRETURN  0x0F//TODO implement it
 #define	SYSCALL_IOCTL  0x10
 #define	SYSCALL_PREAD64  0x11
 #define	SYSCALL_PWRITE64  0x12
