@@ -49,6 +49,7 @@
 #define	SYSCALL_FCHMOD  0x5B
 #define	SYSCALL_CHOWN  0x5C
 #define	SYSCALL_FCHOWN  0x5D
+#define SYSCALL_LCHOWN 0x5E
 
 extern int64 syscall(unsigned int code, void* arg0, void* arg1, void* arg2, void* arg3, void* arg4, void* arg5);
 
@@ -137,3 +138,5 @@ int64 syscall_fchmod(file_t file, mode_t mode);
 int64 syscall_chown(const char* filename, uid_t user, gid_t group);
 
 int64 syscall_fchown(file_t file, uid_t user, gid_t group);
+
+int64 syscall_lchown(const char* filename, uid_t user, gid_t group);

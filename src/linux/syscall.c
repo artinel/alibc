@@ -182,3 +182,7 @@ int64 syscall_chown(const char* filename, uid_t user, gid_t group){
 int64 syscall_fchown(file_t file, uid_t user, gid_t group){
 	return syscall(SYSCALL_FCHOWN, PTR64(file), PTR64(user), PTR64(group), NULL, NULL, NULL);
 }
+
+int64 syscall_lchown(const char* filename, uid_t user, gid_t group){
+	return syscall(SYSCALL_LCHOWN, PTR(filename), PTR64(user), PTR64(group), NULL, NULL, NULL);
+}
