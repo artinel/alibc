@@ -115,3 +115,6 @@ typedef	struct fd_set {
 		_p->fds_bits[--_n] = 0;			\
 } while (0)
 //END ----- Copied from https://github.com/openbsd/src/blob/master/sys/sys/select.h
+
+
+size_t readf(file_t file, char* buffer, size_t count);
