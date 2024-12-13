@@ -117,4 +117,5 @@ typedef	struct fd_set {
 //END ----- Copied from https://github.com/openbsd/src/blob/master/sys/sys/select.h
 
 
+stat_t filestat(file_t file, filestat_t* stat);
 size_t readf(file_t file, char* buffer, size_t count);

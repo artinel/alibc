@@ -13,3 +13,4 @@ typedef unsigned long arg_t;
 typedef unsigned int pid_t;
 typedef unsigned int uid_t;
 typedef unsigned int gid_t;
+typedef unsigned short stat_t;

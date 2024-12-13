@@ -70,7 +70,7 @@ int64 syscall_close(file_t file);
 
 int64 syscall_stat(const char* filename, filestat_t* stat);
 
-int64 syscall_fstat(const char* filename, filestat_t* stat);
+int64 syscall_fstat(file_t file, filestat_t* stat);
 
 int64 syscall_lstat(const char* filename, filestat_t* stat);
 

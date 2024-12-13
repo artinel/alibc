@@ -26,8 +26,8 @@ int64 syscall_stat(const char* filename, filestat_t* stat){
 	return syscall(SYSCALL_STAT, PTR(filename), stat, NULL, NULL, NULL, NULL);
 }
 
-int64 syscall_fstat(const char* filename, filestat_t* stat){
-	return syscall(SYSCALL_FSTAT, PTR(filename), stat, NULL, NULL, NULL, NULL);
+int64 syscall_fstat(file_t file, filestat_t* stat){
+	return syscall(SYSCALL_FSTAT, PTR64(file), stat, NULL, NULL, NULL, NULL);
 }
 
 int64 syscall_lstat(const char* filename, filestat_t* stat){
