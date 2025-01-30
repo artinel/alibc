@@ -5,8 +5,10 @@ CFLAGS ?= -nostdlib -I./src/include -Wall -fPIC
 LDFLAGS = -shared
 TARGET = libac.so
 
-CSOURCES = $(shell find . -type f -name "*.c")
-SSOURCES = $(shell find . -type f -name "*.S")
+CSOURCES = $(shell find src -type f -name "*.c")
+SSOURCES = $(shell find src -type f -name "*.S")
+
+TEST_SOURCES = $(shell find test -type f -name "*.c")
 
 INSTALL_PATH ?= /usr/lib
 INSTALL_HEADER_PATH ?= /usr/include/alibc
@@ -49,3 +51,9 @@ $(TARGET): $(OBJECTS)
 clean:
 	rm $(shell find . -type f -name "*.o")
 	rm $(TARGET)
+
+ctest: 
+	$(CC) -Wall -lac -I/usr/include/alibc test/$(T).c -o test/$(T).out
+
+ctest-run: ctest
+	./test/$(T).out
