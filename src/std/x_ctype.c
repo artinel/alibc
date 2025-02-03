@@ -12,7 +12,7 @@
 #define XUP (_UP | _XD)
 
 //static data
-static const short ctype_tab[257] = {0//EOF,
+static const short ctype_tab[257] = {0,//EOF
 	_BB , _BB , _BB , _BB , _BB , _BB , _BB , _BB ,
 	_BB , _CN , _CN , _CN , _CN , _CN , _BB , _BB ,
 	_BB , _BB , _BB , _BB , _BB , _BB , _BB , _BB ,
