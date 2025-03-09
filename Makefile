@@ -22,7 +22,7 @@ OBJECTS += $(SSOURCES:.s=_s.o)
 
 
 %_c.o: %.c
-	$(CC) $(CFLAGS) -c %< -o $@
+	$(CC) $(CFLAGS) -c $< -o $@
 
 %_s.o: %.s
 	$(ASM) $(ASMFLAGS) -c $< -o $@
